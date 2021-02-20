@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/suture-bleedout.wav-87c5ea757690764f302787b5bf7a79e8.sample"
+
+[deps]
+
+source_file="res://SoundEffects/suture-bleedout.wav"
+dest_files=[ "res://.import/suture-bleedout.wav-87c5ea757690764f302787b5bf7a79e8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

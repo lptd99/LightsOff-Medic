@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/incorrect-suture.wav-c3ec995dd99906c3449bc6c3aa710a95.sample"
+
+[deps]
+
+source_file="res://SoundEffects/incorrect-suture.wav"
+dest_files=[ "res://.import/incorrect-suture.wav-c3ec995dd99906c3449bc6c3aa710a95.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/suture-prompt.wav-db59b4435e9108530dc041d85576975a.sample"
+
+[deps]
+
+source_file="res://SoundEffects/suture-prompt.wav"
+dest_files=[ "res://.import/suture-prompt.wav-db59b4435e9108530dc041d85576975a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

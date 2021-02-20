@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/HeartBeat.gd" type="Script" id=1]
+[ext_resource path="res://SoundEffects/heart-monitor-beep.wav" type="AudioStream" id=2]
+
+[node name="HeartBeatScene" type="Node"]
+script = ExtResource( 1 )
+
+[node name="MainDoctor" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5 )
+unit_db = 10.0
+
+[node name="HeartRateMonitor" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4 )
+stream = ExtResource( 2 )
+
+[node name="BackgroundHeartRateMonitor" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4 )
+stream = ExtResource( 2 )
+
+[node name="NormalBPM" type="Timer" parent="."]
+wait_time = 0.01
+
+[node name="FastBPM" type="Timer" parent="."]
+wait_time = 0.01
+
+[node name="CriticalBPM" type="Timer" parent="."]
+wait_time = 0.01
+
+[node name="BackgroundBPM" type="Timer" parent="."]
+wait_time = 0.01
+[connection signal="finished" from="MainDoctor" to="." method="_on_MainDoctor_finished"]
+[connection signal="finished" from="HeartRateMonitor" to="." method="_on_HeartRateMonitor_finished"]
+[connection signal="timeout" from="NormalBPM" to="." method="_on_BPM_timeout"]
+[connection signal="timeout" from="FastBPM" to="." method="_on_BPM_timeout"]
+[connection signal="timeout" from="CriticalBPM" to="." method="_on_BPM_timeout"]
+[connection signal="timeout" from="BackgroundBPM" to="." method="_on_BackgroundBPM_timeout"]

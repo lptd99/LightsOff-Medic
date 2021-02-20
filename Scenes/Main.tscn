@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/MainScript.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Heartbeat.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Suture.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_energy = 0.0
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+
+[node name="AssistantDoctor" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.80983, 0, 2.59216 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.023289, 0, -0.999729, 0, 1, 0, 0.999729, 0, 0.023289, 0, 0, 0 )
+environment = SubResource( 1 )
+fov = 32.4462
+near = 0.01
+far = 0.1
+
+[node name="MainDoctor" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5 )
+unit_db = 10.0
+
+[node name="HeartBeatScene" parent="." instance=ExtResource( 2 )]
+
+[node name="SutureScene" parent="." instance=ExtResource( 3 )]
+
+[node name="MainTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Delayer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+[connection signal="finished" from="MainDoctor" to="." method="_on_MainDoctor_finished"]
+[connection signal="flatline" from="HeartBeatScene" to="." method="_on_HeartBeatScene_flatline"]
+[connection signal="resuscitate" from="HeartBeatScene" to="." method="_on_HeartBeatScene_resuscitate"]
+[connection signal="patientBleedout" from="SutureScene" to="." method="_on_SutureScene_patientBleedout"]
+[connection signal="sutureClosed" from="SutureScene" to="." method="_on_SutureScene_sutureClosed"]
+[connection signal="timeout" from="MainTimer" to="." method="_on_MainTimer_timeout"]
+[connection signal="timeout" from="Delayer" to="." method="_on_Delayer_timeout"]
